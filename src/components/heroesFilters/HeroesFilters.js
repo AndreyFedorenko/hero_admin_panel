@@ -8,8 +8,8 @@ import { filtersFetching, filtersFetched, filtersFetchingError, activeFilterChan
 import Spinner from '../spinner/Spinner';
 
 const HeroesFilters = () => {
-
-    const {filters, filtersLoadingStatus, activeFilter} = useSelector(state => state);
+    //  как state для отображения на странице, будет показываться отфильтрованный список 
+    const {filters, filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
     const dispatch = useDispatch();
     const {request} = useHttp();
 
@@ -41,9 +41,10 @@ const HeroesFilters = () => {
             });
             
             return <button 
-                        // key={name} 
+                        key={name} 
                         id={name} 
                         className={btnClass}
+    // ctiveFilterChanged функция по изменению фильтра, name имя активного фильтра
                         onClick={() => dispatch(activeFilterChanged(name))}
                         >{label}</button>
         })

@@ -13,12 +13,6 @@
       "element": "wind"
     },
     {
-      "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
-    },
-    {
       "id": "1de1d5ad-3631-4ced-8c6d-750a7876966d",
       "name": "Иван Грозный",
       "description": "Сажать на кол",
@@ -29,6 +23,12 @@
       "name": "Жанна ДэАрк",
       "description": "Я горю как огонь...",
       "element": "fire"
+    },
+    {
+      "id": "b8ccbc7f-5458-4cb9-86ab-122b4f484c0c",
+      "name": "Freddy Krueger",
+      "description": "Во сне своем узнаешь, что я умею...",
+      "element": "wind"
     }
   ],
   "filters": [

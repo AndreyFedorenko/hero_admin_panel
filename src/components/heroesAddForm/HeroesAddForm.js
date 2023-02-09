@@ -6,19 +6,17 @@ import { v4 as uuidv4 } from 'uuid';
 import { heroCreated } from '../../actions';
 
 const HeroesAddForm = () => {
-    // Состояния для контроля формы
+    // Состояния для контроля формы, они не идут в другие компоненты и store
     const [heroName, setHeroName] = useState('');
     const [heroDescr, setHeroDescr] = useState('');
     const [heroElement, setHeroElement] = useState('');
 
-    const {filters, filtersLoadingStatus} = useSelector(state => state);
+    const {filters, filtersLoadingStatus} = useSelector(state => state.filters);
     const dispatch = useDispatch();
     const {request} = useHttp();
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        // Можно сделать и одинаковые названия состояний,
-        // хотел показать вам чуть нагляднее
         // Генерация id через библиотеку
         const newHero = {
             id: uuidv4(),
@@ -50,7 +48,7 @@ const HeroesAddForm = () => {
         // Если фильтры есть, то рендерим их
         if (filters && filters.length > 0 ) {
             return filters.map(({name, label}) => {
-                // Один из фильтров нам тут не нужен
+                // Один из фильтров нам тут не нужен, который был на all, заменим его на Я владею элементом...
                 // eslint-disable-next-line
                 if (name === 'all')  return;
 
